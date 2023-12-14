@@ -11,3 +11,11 @@
 .footer-bg{
   @apply bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600
 }
+
+.content-image{
+  @apply absolute object-cover w-full h-full -z-10 filter brightness-[0.7]
+}
+
+p{
+  @apply text-white text-[15px]
+}
