@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setScrollY } from '../../body/bodySlice';
 import { NavLink } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
+import { IoIosMenu } from "react-icons/io";
 
 
 export default function Navbar() {
@@ -29,22 +30,25 @@ useEffect(() => {
 }, [dispatch]);
 
     return (
-        <nav className={ ` shadow-xl z-10 lg:rounded-none transition-all duration-500 ease-in-out font-base lg:mx-16 mx-0 navbar-bg xl:h-[100px] flex justify-around items-center ${scrollY > 0 ? 'fixed h-[80px] top-0 lg:mx-auto mx-0 rounded-tl-none w-full':'lg:rounded-tl-full rounded-none lg:mt-10 mt-0'}`}>
+            <nav className={ `shadow-3xl border-b z-10 border-[#ffa500] transition-all duration-300 ease-in-out font-base flex lg:justify-around justify-between items-center ${scrollY > 0 ? 'fixed bg-[black] h-[70px] border-none top-0 w-full':'h-[70px] navbar-bg relative lg:h-[70px]'}`}>
             <div>
-                <img className="h-5 w-5 bg-white" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="logo" />
+                <img className="h-5 w-5 bg-white ml-10 lg:ml-auto" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="logo" />
             </div>
-            <div className="text-white cursor-pointer w-3/5  hidden lg:flex justify-end gap-10">
-                <NavLink to="#">Anasayfa</NavLink>
-                <NavLink to="#">Referanslar</NavLink>
-                <NavLink to="#">Anasayfa</NavLink>
-                <NavLink to="#">Anasayfa</NavLink>
-                <NavLink to="#">Hakkımızda</NavLink>
+            <div className="text-white cursor-pointer w-3/5 hidden lg:flex justify-end gap-10">
+                <NavLink to="/">Anasayfa</NavLink>
+                <NavLink to="/referans">Referanslar</NavLink>
+                <NavLink to="/galeri">Galeri</NavLink>
+                <NavLink to="/iletisim">İletişim</NavLink>
+                <NavLink to="/hakkimizda">Hakkımızda</NavLink>
             </div>
-            <div className='flex bg-transparent '>
+            <div className='flex bg-transparent  right-0'>
               <label htmlFor="search" className='flex'>
                 <FaSearch name='search' className='text-white cursor-pointer h-full mx-1' />
-                <input type='text' name='search' placeholder='Ara' className="text-white w-40 p-1 border-b bg-transparent border-white focus:border-red-600 transition-colors ease-in-out"/>
+                <input type='text' name='search' placeholder='Ara' className="text-white hidden lg:flex w-40 p-1 border-b bg-transparent border-white focus:border-[#ffa500] transition-colors ease-in-out"/>
               </label>
+              <IoIosMenu 
+              
+              className='lg:hidden text-white h-[35px] w-[50px]' />
             </div>
         </nav>
     )
